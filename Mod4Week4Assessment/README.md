@@ -33,28 +33,33 @@ Open up `InterfacePractice.cs`. You should not need to run this file, you will j
 Edit this file with your answers.
 
 1. What are some of the benefits of using inheritance? (1 point)
-    * < Your answer >  
+    * `Code Reusability` - Using inheritance allows you to 'inherit' properties and methods of a base class.
+	* `Maintenance` - When we update a base class, it updates all classes that are derived from it.
+	
 2. What might be some of the disadvantages of using inheritance? (1 point)
-    * < Your answer >  
-
+    * `Maintenance` - While also an advantage, if you make one change in the base class, you may have to change all classes that are derived from it.
+	* `Non-Multiple Inheritance` -  C# only supports single inheritance, so attempting to derive a class off of several base classes will not work, this forces us to use other strategies like `interfaces`, which greatly increases the complexity.
+	
 3. How would you describe the difference between the base class and the derived class when working with inheritance? (1 point)
-	* < Your answer >  
+	* I like to think that the `base class` is the class that sets the guidelines and structure(methods, properties) that the `derived class` **must** use.
+	* Another thing to mention is that often times the base class contains empty properties and methods(though it can contain `default` methods and properties), in other words it is an abstract class - the actual implementation of those methods and properties is determined by the derived class.
 
 4.  What happens if you define the same method in the parent class and the child class? (1 point)
-	* < Your answer > 
+	* Whichever is more specific is the method that will be run(similar to css), so if we have identical methods, the method inside of the child class will be run because it is the most specific. Since inheritance allows multiple classes to inherit from the same base class, it is not specific to any class in particular, unlike a method in a child class.
+	* Additionally, we can use keywords such as `new` or `override`, to force one method or the other to be run. For instance, if we use `new` when defining a method in the derived class, the method in the base class is hidden. Likewise, if we use `override` when defining a method in the derived class, this will override the base class's method (override is used in conjunction with `polymorphism`).
 
 5. In your own words, how would you define an Interface? (1 point)
-    * < Your answer > 
+    * Similarily to inheritance, interfaces act as structure that classes **must** adopt. The `interface` provides a blueprint of methods, properties, and more that classes can use. One key difference between interfaces and inheritance is that classes can implement multiple interfaces at once, unlike inheritance.
 
 6. Does a class implementing an interface need to implement all of the methods in that interface? Why or why not? (1 point)
-    * < Your answer > 
+    * Yes - a class that use an interface **must** utilize all methods and satisfy all properties definined in the interface.
+	* The class must use all methods, so that any class implementing this structure(interface) adheres to the same rules. In otherwords if I have two classes, one is a `House` and the other is a `Shape`, and I implement an interface: `IMath` that contains methods: `CalculateSQFT` and `CalculateArea`. It seems obvious that I would use CalculateSQFT for the House class, and CalculateArea for Shape, however I have to implement both - otherwise I completely break the structure of `IMath`. Additionally, if the compiler or runtime recognizes that something has not been implemented it can greatly reduce performance and functionality.
 
 7. Both Inheritance and Interfaces use the `:` symbol after a class name. If you're looking at a class, what's one thing that can help you determine if the class is implementing an interface of extending a base class? (1 point)
-	* < Your answer >  
+	* The best way to tell is by understanding the industry convention. For Interfaces its "required" to use an I before the name, for instance: `IMyInterface`. Another way to tell, is if the class has multiple implementationsl, since a class can only inherit one base class, if there are multiple implementations (i.e `MyClass : IMyInterface, IMyInterface2`) it must be an interface.
 
 8. If asked in an interview, how would you describe the purpose of the IOC container in a .NET application? (1 point)
-	* < Your answer >  
-
+	* an Inversion of Control container is a tool that manages dependencies in the application. IoC uses Dependency Injection to pass dependencies into a class rather than creating them inside the class.
 
 ## Rubric
 
